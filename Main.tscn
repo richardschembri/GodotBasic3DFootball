@@ -64,7 +64,6 @@ transform = Transform( 1, 0, 0, 0, 0.882648, -0.470034, 0, 0.470034, 0.882648, 5
 
 [node name="EndPlatform" parent="." index="7" instance=ExtResource( 2 )]
 
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.9755, 18.5466, -27.8702 )
 
 [node name="GoalPost" parent="EndPlatform" index="1" instance=ExtResource( 5 )]
