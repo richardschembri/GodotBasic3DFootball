@@ -1,0 +1,308 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://GroundGrid.meshlib" type="MeshLibrary" id=1]
+
+[sub_resource type="Environment" id=1]
+
+background_mode = 0
+background_sky_custom_fov = 0.0
+background_color = Color( 0, 0, 0, 1 )
+background_energy = 1.0
+background_canvas_max_layer = 0
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 1.0
+ambient_light_sky_contribution = 1.0
+fog_enabled = false
+fog_color = Color( 0.5, 0.6, 0.7, 1 )
+fog_sun_color = Color( 1, 0.9, 0.7, 1 )
+fog_sun_amount = 0.0
+fog_depth_enabled = true
+fog_depth_begin = 10.0
+fog_depth_curve = 1.0
+fog_transmit_enabled = false
+fog_transmit_curve = 1.0
+fog_height_enabled = false
+fog_height_min = 0.0
+fog_height_max = 100.0
+fog_height_curve = 1.0
+tonemap_mode = 0
+tonemap_exposure = 1.0
+tonemap_white = 1.0
+auto_exposure_enabled = false
+auto_exposure_scale = 0.4
+auto_exposure_min_luma = 0.05
+auto_exposure_max_luma = 8.0
+auto_exposure_speed = 0.5
+ss_reflections_enabled = false
+ss_reflections_max_steps = 64
+ss_reflections_fade_in = 0.15
+ss_reflections_fade_out = 2.0
+ss_reflections_depth_tolerance = 0.2
+ss_reflections_roughness = true
+ssao_enabled = false
+ssao_radius = 1.0
+ssao_intensity = 1.0
+ssao_radius2 = 0.0
+ssao_intensity2 = 1.0
+ssao_bias = 0.01
+ssao_light_affect = 0.0
+ssao_color = Color( 0, 0, 0, 1 )
+ssao_quality = 0
+ssao_blur = 3
+ssao_edge_sharpness = 4.0
+dof_blur_far_enabled = false
+dof_blur_far_distance = 10.0
+dof_blur_far_transition = 5.0
+dof_blur_far_amount = 0.1
+dof_blur_far_quality = 1
+dof_blur_near_enabled = false
+dof_blur_near_distance = 2.0
+dof_blur_near_transition = 1.0
+dof_blur_near_amount = 0.1
+dof_blur_near_quality = 1
+glow_enabled = false
+glow_levels/1 = false
+glow_levels/2 = false
+glow_levels/3 = true
+glow_levels/4 = false
+glow_levels/5 = true
+glow_levels/6 = false
+glow_levels/7 = false
+glow_intensity = 0.8
+glow_strength = 1.0
+glow_bloom = 0.0
+glow_blend_mode = 2
+glow_hdr_threshold = 1.0
+glow_hdr_scale = 2.0
+glow_bicubic_upscale = false
+adjustment_enabled = false
+adjustment_brightness = 1.0
+adjustment_contrast = 1.0
+adjustment_saturation = 1.0
+_sections_unfolded = [ "Ambient Light" ]
+
+[sub_resource type="CubeMesh" id=2]
+
+size = Vector3( 2, 2, 2 )
+subdivide_width = 0
+subdivide_height = 0
+subdivide_depth = 0
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="ConvexPolygonShape" id=3]
+
+points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
+
+[node name="Spatial" type="Spatial"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+
+environment = SubResource( 1 )
+
+[node name="GroundGridMap" type="GridMap" parent="." index="1"]
+
+theme = ExtResource( 1 )
+cell_size = Vector3( 3, 3, 3 )
+cell_octant_size = 8
+cell_center_x = true
+cell_center_y = false
+cell_center_z = true
+cell_scale = 1.0
+collision_layer = 1
+collision_mask = 1
+data = {
+"cells": PoolIntArray( 0, 0, 1441802, 1, 0, 1441802, 2, 0, 1441802, 3, 0, 1441802, 4, 0, 1441802, 5, 0, 1441802, 6, 0, 1441802, 7, 0, 1441802, 8, 0, 1441802, 9, 0, 1441802, 10, 0, 1441802, 65524, 0, 1441802, 65525, 0, 1441802, 65526, 0, 1441802, 65527, 0, 1441802, 65528, 0, 1441802, 65529, 0, 1441802, 65530, 0, 1441802, 65531, 0, 1441802, 65532, 0, 1441802, 65533, 0, 1441802, 65534, 0, 1441802, 65535, 0, 1441802, 0, 1, 1441802, 1, 1, 1441802, 2, 1, 1441802, 3, 1, 1441802, 4, 1, 1441802, 5, 1, 1441802, 6, 1, 1441802, 7, 1, 1441802, 8, 1, 1441802, 9, 1, 1441802, 10, 1, 1441802, 65524, 1, 1441802, 65525, 1, 1441802, 65526, 1, 1441802, 65527, 1, 1441802, 65528, 1, 1441802, 65529, 1, 1441802, 65530, 1, 1441802, 65531, 1, 1441802, 65532, 1, 1441802, 65533, 1, 1441802, 65534, 1, 1441802, 65535, 1, 1441802, 0, 2, 1441802, 1, 2, 1441802, 2, 2, 1441802, 3, 2, 1441802, 4, 2, 1441802, 5, 2, 1441802, 6, 2, 1441802, 7, 2, 1441802, 8, 2, 1441802, 9, 2, 1441802, 10, 2, 1441802, 65524, 2, 1441802, 65525, 2, 1441802, 65526, 2, 1441802, 65527, 2, 1441802, 65528, 2, 1441802, 65529, 2, 1441802, 65530, 2, 1441802, 65531, 2, 1441802, 65532, 2, 1441802, 65533, 2, 1441802, 65534, 2, 1441802, 65535, 2, 1441802, 0, 3, 1441802, 1, 3, 1441802, 2, 3, 1441802, 3, 3, 1441802, 4, 3, 1441802, 5, 3, 1441802, 6, 3, 1441802, 7, 3, 1441802, 8, 3, 1441802, 9, 3, 1441802, 10, 3, 1441802, 65524, 3, 1441802, 65525, 3, 1441802, 65526, 3, 1441802, 65527, 3, 1441802, 65528, 3, 1441802, 65529, 3, 1441802, 65530, 3, 1441802, 65531, 3, 1441802, 65532, 3, 1441802, 65533, 3, 1441802, 65534, 3, 1441802, 65535, 3, 1441802, 0, 4, 1441802, 1, 4, 1441802, 2, 4, 1441802, 3, 4, 1441802, 4, 4, 1441802, 5, 4, 1441802, 6, 4, 1441802, 7, 4, 1441802, 8, 4, 1441802, 9, 4, 1441802, 10, 4, 1441802, 65524, 4, 1441802, 65525, 4, 1441802, 65526, 4, 1441802, 65527, 4, 1441802, 65528, 4, 1441802, 65529, 4, 1441802, 65530, 4, 1441802, 65531, 4, 1441802, 65532, 4, 1441802, 65533, 4, 1441802, 65534, 4, 1441802, 65535, 4, 1441802, 0, 5, 1441802, 1, 5, 1441802, 2, 5, 1441802, 3, 5, 1441802, 4, 5, 1441802, 5, 5, 1441802, 6, 5, 1441802, 7, 5, 1441802, 8, 5, 1441802, 9, 5, 1441802, 10, 5, 1441802, 65524, 5, 1441802, 65525, 5, 1441802, 65526, 5, 1441802, 65527, 5, 1441802, 65528, 5, 1441802, 65529, 5, 1441802, 65530, 5, 1441802, 65531, 5, 1441802, 65532, 5, 1441802, 65533, 5, 1441802, 65534, 5, 1441802, 65535, 5, 1441802, 0, 6, 1441802, 1, 6, 1441802, 2, 6, 1441802, 3, 6, 1441802, 4, 6, 1441802, 5, 6, 1441802, 6, 6, 1441802, 7, 6, 1441802, 8, 6, 1441802, 9, 6, 1441802, 10, 6, 1441802, 65524, 6, 1441802, 65525, 6, 1441802, 65526, 6, 1441802, 65527, 6, 1441802, 65528, 6, 1441802, 65529, 6, 1441802, 65530, 6, 1441802, 65531, 6, 1441802, 65532, 6, 1441802, 65533, 6, 1441802, 65534, 6, 1441802, 65535, 6, 1441802, 0, 7, 1441802, 1, 7, 1441802, 2, 7, 1441802, 3, 7, 1441802, 4, 7, 1441802, 5, 7, 1441802, 6, 7, 1441802, 7, 7, 1441802, 8, 7, 1441802, 9, 7, 1441802, 10, 7, 1441802, 65524, 7, 1441802, 65525, 7, 1441802, 65526, 7, 1441802, 65527, 7, 1441802, 65528, 7, 1441802, 65529, 7, 1441802, 65530, 7, 1441802, 65531, 7, 1441802, 65532, 7, 1441802, 65533, 7, 1441802, 65534, 7, 1441802, 65535, 7, 1441802, 0, 65527, 1441802, 1, 65527, 1441802, 2, 65527, 1441802, 3, 65527, 1441802, 4, 65527, 1441802, 5, 65527, 1441802, 6, 65527, 1441802, 7, 65527, 1441802, 8, 65527, 1441802, 9, 65527, 1441802, 10, 65527, 1441802, 65524, 65527, 1441802, 65525, 65527, 1441802, 65526, 65527, 1441802, 65527, 65527, 1441802, 65528, 65527, 1441802, 65529, 65527, 1441802, 65530, 65527, 1441802, 65531, 65527, 1441802, 65532, 65527, 1441802, 65533, 65527, 1441802, 65534, 65527, 1441802, 65535, 65527, 1441802, 0, 65528, 1441802, 1, 65528, 1441802, 2, 65528, 1441802, 3, 65528, 1441802, 4, 65528, 1441802, 5, 65528, 1441802, 6, 65528, 1441802, 7, 65528, 1441802, 8, 65528, 1441802, 9, 65528, 1441802, 10, 65528, 1441802, 65524, 65528, 1441802, 65525, 65528, 1441802, 65526, 65528, 1441802, 65527, 65528, 1441802, 65528, 65528, 1441802, 65529, 65528, 1441802, 65530, 65528, 1441802, 65531, 65528, 1441802, 65532, 65528, 1441802, 65533, 65528, 1441802, 65534, 65528, 1441802, 65535, 65528, 1441802, 0, 65529, 1441802, 1, 65529, 1441802, 2, 65529, 1441802, 3, 65529, 1441802, 4, 65529, 1441802, 5, 65529, 1441802, 6, 65529, 1441802, 7, 65529, 1441802, 8, 65529, 1441802, 9, 65529, 1441802, 10, 65529, 1441802, 65524, 65529, 1441802, 65525, 65529, 1441802, 65526, 65529, 1441802, 65527, 65529, 1441802, 65528, 65529, 1441802, 65529, 65529, 1441802, 65530, 65529, 1441802, 65531, 65529, 1441802, 65532, 65529, 1441802, 65533, 65529, 1441802, 65534, 65529, 1441802, 65535, 65529, 1441802, 0, 65530, 1441802, 1, 65530, 1441802, 2, 65530, 1441802, 3, 65530, 1441802, 4, 65530, 1441802, 5, 65530, 1441802, 6, 65530, 1441802, 7, 65530, 1441802, 8, 65530, 1441802, 9, 65530, 1441802, 10, 65530, 1441802, 65524, 65530, 1441802, 65525, 65530, 1441802, 65526, 65530, 1441802, 65527, 65530, 1441802, 65528, 65530, 1441802, 65529, 65530, 1441802, 65530, 65530, 1441802, 65531, 65530, 1441802, 65532, 65530, 1441802, 65533, 65530, 1441802, 65534, 65530, 1441802, 65535, 65530, 1441802, 0, 65531, 1441802, 1, 65531, 1441802, 2, 65531, 1441802, 3, 65531, 1441802, 4, 65531, 1441802, 5, 65531, 1441802, 6, 65531, 1441802, 7, 65531, 1441802, 8, 65531, 1441802, 9, 65531, 1441802, 10, 65531, 1441802, 65524, 65531, 1441802, 65525, 65531, 1441802, 65526, 65531, 1441802, 65527, 65531, 1441802, 65528, 65531, 1441802, 65529, 65531, 1441802, 65530, 65531, 1441802, 65531, 65531, 1441802, 65532, 65531, 1441802, 65533, 65531, 1441802, 65534, 65531, 1441802, 65535, 65531, 1441802, 0, 65532, 1441802, 1, 65532, 1441802, 2, 65532, 1441802, 3, 65532, 1441802, 4, 65532, 1441802, 5, 65532, 1441802, 6, 65532, 1441802, 7, 65532, 1441802, 8, 65532, 1441802, 9, 65532, 1441802, 10, 65532, 1441802, 65524, 65532, 1441802, 65525, 65532, 1441802, 65526, 65532, 1441802, 65527, 65532, 1441802, 65528, 65532, 1441802, 65529, 65532, 1441802, 65530, 65532, 1441802, 65531, 65532, 1441802, 65532, 65532, 1441802, 65533, 65532, 1441802, 65534, 65532, 1441802, 65535, 65532, 1441802, 0, 65533, 1441802, 1, 65533, 1441802, 2, 65533, 1441802, 3, 65533, 1441802, 4, 65533, 1441802, 5, 65533, 1441802, 6, 65533, 1441802, 7, 65533, 1441802, 8, 65533, 1441802, 9, 65533, 1441802, 10, 65533, 1441802, 65524, 65533, 1441802, 65525, 65533, 1441802, 65526, 65533, 1441802, 65527, 65533, 1441802, 65528, 65533, 1441802, 65529, 65533, 1441802, 65530, 65533, 1441802, 65531, 65533, 1441802, 65532, 65533, 1441802, 65533, 65533, 1441802, 65534, 65533, 1441802, 65535, 65533, 1441802, 0, 65534, 1441802, 1, 65534, 1441802, 2, 65534, 1441802, 3, 65534, 1441802, 4, 65534, 1441802, 5, 65534, 1441802, 6, 65534, 1441802, 7, 65534, 1441802, 8, 65534, 1441802, 9, 65534, 1441802, 10, 65534, 1441802, 65524, 65534, 1441802, 65525, 65534, 1441802, 65526, 65534, 1441802, 65527, 65534, 1441802, 65528, 65534, 1441802, 65529, 65534, 1441802, 65530, 65534, 1441802, 65531, 65534, 1441802, 65532, 65534, 1441802, 65533, 65534, 1441802, 65534, 65534, 1441802, 65535, 65534, 1441802, 0, 65535, 1441802, 1, 65535, 1441802, 2, 65535, 1441802, 3, 65535, 1441802, 4, 65535, 1441802, 5, 65535, 1441802, 6, 65535, 1441802, 7, 65535, 1441802, 8, 65535, 1441802, 9, 65535, 1441802, 10, 65535, 1441802, 65524, 65535, 1441802, 65525, 65535, 1441802, 65526, 65535, 1441802, 65527, 65535, 1441802, 65528, 65535, 1441802, 65529, 65535, 1441802, 65530, 65535, 1441802, 65531, 65535, 1441802, 65532, 65535, 1441802, 65533, 65535, 1441802, 65534, 65535, 1441802, 65535, 65535, 1441802 )
+}
+_sections_unfolded = [ "Cell", "Transform" ]
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="GroundObjectsGridMap" type="GridMap" parent="." index="2"]
+
+theme = ExtResource( 1 )
+cell_size = Vector3( 3, 3, 3 )
+cell_octant_size = 8
+cell_center_x = true
+cell_center_y = false
+cell_center_z = true
+cell_scale = 1.0
+collision_layer = 1
+collision_mask = 1
+data = {
+"cells": PoolIntArray( 8, 0, 1048596, 65525, 0, 23, 65528, 0, 1048596, 7, 1, 1441818, 8, 1, 1048596, 10, 1, 24, 65528, 1, 1048596, 65529, 1, 655386, 8, 2, 1048596, 65528, 2, 1048596, 8, 3, 1048596, 65528, 3, 1048596, 8, 4, 655381, 65526, 4, 22, 0, 5, 20, 1, 5, 20, 2, 5, 20, 3, 5, 20, 4, 5, 20, 5, 5, 20, 6, 5, 20, 9, 5, 22, 65529, 5, 1048597, 65530, 5, 20, 65531, 5, 20, 65532, 5, 20, 65533, 5, 20, 65534, 5, 20, 65535, 5, 20, 0, 7, 22, 6, 7, 23, 9, 7, 24, 65528, 7, 23, 65530, 7, 24, 2, 8, 1048601, 5, 65527, 1441817, 65525, 65527, 1441817, 2, 65528, 22, 65530, 65528, 24, 0, 65529, 23, 4, 65529, 24, 6, 65529, 23, 9, 65529, 22, 65525, 65529, 23, 65529, 65529, 22, 0, 65530, 20, 1, 65530, 20, 2, 65530, 20, 3, 65530, 20, 4, 65530, 20, 5, 65530, 20, 6, 65530, 20, 7, 65530, 1441813, 65530, 65530, 20, 65531, 65530, 20, 65532, 65530, 20, 65533, 65530, 20, 65534, 65530, 20, 65535, 65530, 20, 65524, 65531, 25, 65528, 65531, 21, 8, 65532, 1048596, 65528, 65532, 1048596, 8, 65533, 1048596, 65528, 65533, 1048596, 7, 65534, 1441818, 8, 65534, 1048596, 9, 65534, 23, 65528, 65534, 1048596, 65529, 65534, 655386, 8, 65535, 1048596, 65528, 65535, 1048596 )
+}
+_sections_unfolded = [ "Cell", "Transform" ]
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="GroundObjectsGridMapAlt" type="GridMap" parent="." index="3"]
+
+theme = ExtResource( 1 )
+cell_size = Vector3( 3, 3, 3 )
+cell_octant_size = 8
+cell_center_x = true
+cell_center_y = false
+cell_center_z = true
+cell_scale = 1.0
+collision_layer = 1
+collision_mask = 1
+data = {
+"cells": PoolIntArray( 11, 0, 655385, 65524, 0, 25, 65527, 0, 1441792, 9, 1, 1441794, 11, 1, 655385, 65524, 1, 25, 9, 2, 1441793, 11, 2, 655385, 65524, 2, 25, 8, 3, 1441812, 11, 3, 655385, 65524, 3, 25, 65525, 3, 1441793, 65528, 3, 1441812, 8, 4, 1441794, 10, 4, 1441794, 11, 4, 655385, 65524, 4, 25, 11, 5, 655385, 65524, 5, 25, 65525, 5, 1441794, 65530, 5, 655380, 2, 6, 1441792, 11, 6, 655385, 65524, 6, 25, 3, 7, 1441794, 8, 7, 1441793, 11, 7, 655385, 65524, 7, 25, 65533, 7, 1441794, 65535, 7, 1441794, 0, 8, 1048601, 1, 8, 1048601, 2, 8, 1441793, 3, 8, 1048601, 4, 8, 1048601, 5, 8, 1048601, 6, 8, 1048601, 7, 8, 1048601, 8, 8, 1048601, 9, 8, 1048601, 10, 8, 1048601, 11, 8, 1048601, 65524, 8, 25, 65525, 8, 1048601, 65526, 8, 1048601, 65527, 8, 1048601, 65528, 8, 1048601, 65529, 8, 1048601, 65530, 8, 1048601, 65531, 8, 1048601, 65532, 8, 1048601, 65533, 8, 1048601, 65534, 8, 1048601, 65535, 8, 1048601, 0, 65527, 1441817, 1, 65527, 1441817, 2, 65527, 1441817, 3, 65527, 1441817, 4, 65527, 1441817, 5, 65527, 1441793, 6, 65527, 1441817, 7, 65527, 1441817, 8, 65527, 1441817, 9, 65527, 1441817, 10, 65527, 1441817, 11, 65527, 655385, 65524, 65527, 1441817, 65526, 65527, 1441817, 65527, 65527, 1441817, 65528, 65527, 1441817, 65529, 65527, 1441817, 65530, 65527, 1441817, 65531, 65527, 1441817, 65532, 65527, 1441817, 65533, 65527, 1441817, 65534, 65527, 1441817, 65535, 65527, 1441817, 7, 65528, 1441794, 9, 65528, 1441794, 11, 65528, 655385, 65524, 65528, 25, 65527, 65528, 1441792, 65532, 65528, 1441794, 65534, 65528, 1441792, 1, 65529, 1441794, 8, 65529, 1441793, 11, 65529, 655385, 65524, 65529, 25, 65526, 65529, 1441794, 10, 65530, 1441793, 11, 65530, 655385, 65524, 65530, 25, 65529, 65530, 20, 9, 65531, 1441793, 11, 65531, 655385, 65524, 65531, 1441794, 65525, 65531, 1441792, 9, 65532, 1441794, 11, 65532, 655385, 65524, 65532, 25, 65525, 65532, 1441793, 10, 65533, 1441794, 11, 65533, 655385, 65524, 65533, 25, 65526, 65533, 1441794, 10, 65534, 1441793, 11, 65534, 655385, 65524, 65534, 25, 65525, 65534, 1441793, 11, 65535, 655385, 65524, 65535, 25 )
+}
+_sections_unfolded = [ "Cell", "Transform" ]
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, -3, 0 )
+}
+
+[node name="InvisibleWalls" type="Node" parent="." index="4"]
+
+[node name="Wall 1" type="MeshInstance" parent="InvisibleWalls" index="0"]
+
+editor/display_folded = true
+transform = Transform( 24.1692, 0, 0, 0, 3.96284, 0, 0, 0, 1, 1.66187, 4.88248, 17.5995 )
+visible = false
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Visibility", "material" ]
+
+[node name="StaticBody" type="StaticBody" parent="InvisibleWalls/Wall 1" index="0"]
+
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="InvisibleWalls/Wall 1/StaticBody" index="0"]
+
+shape = SubResource( 3 )
+disabled = false
+
+[node name="Wall 2" type="MeshInstance" parent="InvisibleWalls" index="1"]
+
+editor/display_folded = true
+transform = Transform( 24.1692, 0, 0, 0, 3.96284, 0, 0, 0, 1, 1.66187, 4.88248, -17.6601 )
+visible = false
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Visibility" ]
+
+[node name="StaticBody" type="StaticBody" parent="InvisibleWalls/Wall 2" index="0"]
+
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="InvisibleWalls/Wall 2/StaticBody" index="0"]
+
+shape = SubResource( 3 )
+disabled = false
+
+[node name="Wall 3" type="MeshInstance" parent="InvisibleWalls" index="2"]
+
+editor/display_folded = true
+transform = Transform( -1.05647e-06, 0, 1, 0, 3.96284, 0, -18.682, 0, -3.37874e-08, -23.7923, 4.88248, 0.121617 )
+visible = false
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StaticBody" type="StaticBody" parent="InvisibleWalls/Wall 3" index="0"]
+
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="InvisibleWalls/Wall 3/StaticBody" index="0"]
+
+shape = SubResource( 3 )
+disabled = false
+
+[node name="Wall 4" type="MeshInstance" parent="InvisibleWalls" index="3"]
+
+editor/display_folded = true
+transform = Transform( -1.05647e-06, 0, 1, 0, 3.96284, 0, -18.682, 0, -3.37874e-08, 26.6494, 4.88248, 0.121617 )
+visible = false
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="StaticBody" type="StaticBody" parent="InvisibleWalls/Wall 4" index="0"]
+
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="InvisibleWalls/Wall 4/StaticBody" index="0"]
+
+shape = SubResource( 3 )
+disabled = false
+
+

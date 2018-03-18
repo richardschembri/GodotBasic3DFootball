@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://models/characters/character7.dae" type="PackedScene" id=1]
+[ext_resource path="res://models/characters/matLowPoly.material" type="Material" id=2]
+
+[sub_resource type="CapsuleShape" id=1]
+
+radius = 0.584876
+height = 0.799416
+
+[node name="Character" instance=ExtResource( 1 )]
+
+_sections_unfolded = [ "Axis Lock", "Collision" ]
+
+[node name="lp_guy_mesh" parent="lp_guy/Skeleton" index="0"]
+
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "material" ]
+
+[node name="AnimationPlayer" parent="." index="1"]
+
+autoplay = "Idle-loop"
+
+[node name="CollisionShape" type="CollisionShape" parent="." index="2"]
+
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.02399, 0 )
+shape = SubResource( 1 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+
