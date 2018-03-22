@@ -1,11 +1,21 @@
 extends Spatial
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+export (NodePath) var player1SpawnPointPath
+onready var player1SpawnPointNode = get_node(player1SpawnPointPath)
+
+export (NodePath) var player2SpawnPointPath
+onready var player2SpawnPointNode = get_node(player2SpawnPointPath)
+
+export (NodePath) var player1
+export (NodePath) var player2
 
 func _ready():
 	$Panel.hide()
+	
+func respawn_Players():
+#	player1SpawnPointNode.
+	
+	pass
 
 
 func _process(delta):

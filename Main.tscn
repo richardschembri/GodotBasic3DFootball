@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=2]
@@ -16,9 +16,17 @@
 
 extents = Vector3( 1, 1, 1 )
 
+[sub_resource type="BoxShape" id=2]
+
+extents = Vector3( 1, 1, 1 )
+
 [node name="Main" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
+player1SpawnPointPath = NodePath("Player1SpawnPoint")
+player2SpawnPointPath = NodePath("Player2SpawnPoint")
+player1 = null
+player2 = null
 
 [node name="Camera" type="Camera" parent="." index="0"]
 
@@ -64,6 +72,7 @@ transform = Transform( 1, 0, 0, 0, 0.882648, -0.470034, 0, 0.470034, 0.882648, 5
 
 [node name="EndPlatform" parent="." index="7" instance=ExtResource( 2 )]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.9755, 18.5466, -27.8702 )
 
 [node name="GoalPost" parent="EndPlatform" index="1" instance=ExtResource( 5 )]
@@ -104,20 +113,22 @@ disabled = false
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.36314, 1.86896, -3.96763 )
 script = ExtResource( 7 )
 
-[node name="Character" parent="." index="9" instance=ExtResource( 8 )]
+[node name="Player1" parent="." index="9" instance=ExtResource( 8 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8162, 0.742359, 0 )
 script = ExtResource( 9 )
 is_player1 = true
 
-[node name="Character2" parent="." index="10" instance=ExtResource( 8 )]
+[node name="Player2" parent="." index="10" instance=ExtResource( 8 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8162, 0.742359, 4.09967 )
 script = ExtResource( 9 )
+_sections_unfolded = [ "Axis Lock", "Collision", "Transform" ]
 is_player1 = false
 
 [node name="Panel" type="Panel" parent="." index="11"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -194,6 +205,46 @@ friction = 0.5
 bounce = 0.5
 can_sleep = false
 _sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Player1SpawnPoint" type="Position3D" parent="." index="15"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.27639, -4.81004, 5.65311, 5.41303 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Player2SpawnPoint" type="Position3D" parent="." index="16"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.27639, 15.3505, 5.65311, 4.60419 )
+
+[node name="Area" type="Area" parent="." index="17"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.27639, -20.3912, 8.55055, 0.324338 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 7.40985, 0, 0, 0, 1, -0.558399, -1.66763, 0 )
+shape = SubResource( 2 )
+disabled = false
 
 [connection signal="body_entered" from="EndPlatform/GoalPost/Area" to="." method="_on_Area_body_entered"]
 
