@@ -56,9 +56,9 @@ func _physics_process(delta):
 	direction = direction * speed * delta
 	
 	if velocity.y > 0:
-		gravity = -20
+		gravity = -200
 	else:
-		gravity = -30
+		gravity = -300
 	
 	velocity.y += gravity * delta
 	velocity.x = direction.x
@@ -74,7 +74,7 @@ func _physics_process(delta):
 		character.set_rotation(char_rot)
 	
 	if is_on_floor() and Input.is_key_pressed(KEY_SPACE):
-		velocity.y = 10
+		velocity.y = 25
 	
 	#manually_handle_collision()
 	

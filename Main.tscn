@@ -23,10 +23,6 @@ extents = Vector3( 1, 1, 1 )
 [node name="Main" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
-player1SpawnPointPath = NodePath("Player1SpawnPoint")
-player2SpawnPointPath = NodePath("Player2SpawnPoint")
-player1 = null
-player2 = null
 
 [node name="Camera" type="Camera" parent="." index="0"]
 
@@ -208,15 +204,22 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Player1SpawnPoint" type="Position3D" parent="." index="15"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.27639, -4.81004, 5.65311, 5.41303 )
+transform = Transform( -4.37114e-08, 0, 4.27639, 0, 1, 0, -1, 0, -1.86927e-07, -10, 1.15, 0 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Player2SpawnPoint" type="Position3D" parent="." index="16"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.27639, 15.3505, 5.65311, 4.60419 )
+transform = Transform( -4.37114e-08, 0, -4.27639, 0, 1, 0, 1, 0, -1.86927e-07, 10, 1.15, 0 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Area" type="Area" parent="." index="17"]
+[node name="BallSpawnPoint" type="Position3D" parent="." index="17"]
 
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.27639, 0, 1, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="." index="18"]
+
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.27639, -20.3912, 8.55055, 0.324338 )
 input_ray_pickable = false
 input_capture_on_drag = false

@@ -1,20 +1,17 @@
 extends Spatial
 
-export (NodePath) var player1SpawnPointPath
-onready var player1SpawnPointNode = get_node(player1SpawnPointPath)
-
-export (NodePath) var player2SpawnPointPath
-onready var player2SpawnPointNode = get_node(player2SpawnPointPath)
-
-export (NodePath) var player1
-export (NodePath) var player2
 
 func _ready():
 	$Panel.hide()
+	reset_positions()
+
 	
-func respawn_Players():
-#	player1SpawnPointNode.
-	
+func reset_positions():
+	$Player1.translation = $Player1SpawnPoint.translation 
+	$Player1.rotation_degrees = $Player1SpawnPoint.rotation_degrees 
+	$Player2.translation = $Player2SpawnPoint.translation 
+	$Player2.rotation_degrees = $Player2SpawnPoint.rotation_degrees
+	$Ball.translation = $BallSpawnPoint.translation
 	pass
 
 
