@@ -68,11 +68,11 @@ transform = Transform( 1, 0, 0, 0, 0.882648, -0.470034, 0, 0.470034, 0.882648, 5
 
 [node name="EndPlatform" parent="." index="7" instance=ExtResource( 2 )]
 
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.9755, 18.5466, -27.8702 )
 
 [node name="GoalPost" parent="EndPlatform" index="1" instance=ExtResource( 5 )]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.19589, 6.45805, -6.74974 )
 
 [node name="Area" type="Area" parent="EndPlatform/GoalPost" index="3"]
@@ -124,7 +124,6 @@ is_player1 = false
 
 [node name="Panel" type="Panel" parent="." index="11"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -217,7 +216,7 @@ _sections_unfolded = [ "Transform" ]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.27639, 0, 1, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Area" type="Area" parent="." index="18"]
+[node name="Player1GoalArea" type="Area" parent="." index="18"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.27639, -20.3912, 8.55055, 0.324338 )
@@ -243,7 +242,39 @@ reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
+[node name="CollisionShape" type="CollisionShape" parent="Player1GoalArea" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 7.40985, 0, 0, 0, 1, -0.558399, -1.66763, 0 )
+shape = SubResource( 2 )
+disabled = false
+
+[node name="Player2GoalArea" type="Area" parent="." index="19"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.27639, 23.8, 8.55055, 0.324338 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Player2GoalArea" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 7.40985, 0, 0, 0, 1, -0.558399, -1.66763, 0 )
 shape = SubResource( 2 )
@@ -252,5 +283,9 @@ disabled = false
 [connection signal="body_entered" from="EndPlatform/GoalPost/Area" to="." method="_on_Area_body_entered"]
 
 [connection signal="body_entered" from="Box" to="Box" method="_on_Box_body_entered"]
+
+[connection signal="body_entered" from="Player1GoalArea" to="." method="_on_Player1GoalArea_body_entered"]
+
+[connection signal="body_entered" from="Player2GoalArea" to="." method="_on_Player2GoalArea_body_entered"]
 
 

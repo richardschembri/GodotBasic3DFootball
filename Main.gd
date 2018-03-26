@@ -27,3 +27,15 @@ func _on_Area_body_entered( body ):
 	if body is RigidBody:
 		print("win")
 		$Panel.show()
+
+func _on_Player1GoalArea_body_entered(body):
+	if body is RigidBody:
+		print("Player 2 Score")	
+		reset_positions()
+	# replace with function body
+
+
+func _on_Player2GoalArea_body_entered(body):
+	if body is RigidBody:
+		print("Player 1 Score")	
+		reset_positions()
