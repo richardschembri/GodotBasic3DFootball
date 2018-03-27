@@ -68,7 +68,7 @@ _sections_unfolded = [ "Albedo", "Emission" ]
 
 radius = 1.0
 
-[node name="Ball" type="RigidBody"]
+[node name="Ball" type="RigidBody" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false

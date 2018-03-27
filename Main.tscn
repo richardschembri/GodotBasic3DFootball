@@ -1,20 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
-[ext_resource path="res://Floor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Walls.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Ramp.tscn" type="PackedScene" id=4]
-[ext_resource path="res://GoalPost.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Box.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Box.gd" type="Script" id=7]
-[ext_resource path="res://Character.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Character.gd" type="Script" id=9]
-[ext_resource path="res://Level.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Ball.tscn" type="PackedScene" id=11]
-
-[sub_resource type="BoxShape" id=1]
-
-extents = Vector3( 1, 1, 1 )
+[ext_resource path="res://Character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Character.gd" type="Script" id=3]
+[ext_resource path="res://Level.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=5]
 
 [sub_resource type="BoxShape" id=2]
 
@@ -40,90 +30,22 @@ size = 1.0
 near = 0.05
 far = 100.0
 
-[node name="Floor" parent="." index="1" instance=ExtResource( 2 )]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.9755, 11.3882, 0 )
-
-[node name="Walls" parent="." index="2" instance=ExtResource( 3 )]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.4785, 12.8216, 0 )
-
-[node name="Walls2" parent="." index="3" instance=ExtResource( 3 )]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.4861, 12.8216, 0 )
-
-[node name="Walls3" parent="." index="4" instance=ExtResource( 3 )]
-
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 59.9572, 12.8216, 9.51835 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Walls4" parent="." index="5" instance=ExtResource( 3 )]
-
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 59.9572, 12.8216, -9.53394 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Ramp" parent="." index="6" instance=ExtResource( 4 )]
-
-transform = Transform( 1, 0, 0, 0, 0.882648, -0.470034, 0, 0.470034, 0.882648, 59.9755, 15.4375, -11.4772 )
-
-[node name="EndPlatform" parent="." index="7" instance=ExtResource( 2 )]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.9755, 18.5466, -27.8702 )
-
-[node name="GoalPost" parent="EndPlatform" index="1" instance=ExtResource( 5 )]
-
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.19589, 6.45805, -6.74974 )
-
-[node name="Area" type="Area" parent="EndPlatform/GoalPost" index="3"]
-
-input_ray_pickable = false
-input_capture_on_drag = false
-space_override = 0
-gravity_point = false
-gravity_distance_scale = 0.0
-gravity_vec = Vector3( 0, -1, 0 )
-gravity = 9.8
-linear_damp = 0.1
-angular_damp = 1.0
-priority = 0.0
-monitoring = true
-monitorable = true
-collision_layer = 1
-collision_mask = 1
-audio_bus_override = false
-audio_bus_name = "Master"
-reverb_bus_enable = false
-reverb_bus_name = "Master"
-reverb_bus_amount = 0.0
-reverb_bus_uniformity = 0.0
-
-[node name="CollisionShape" type="CollisionShape" parent="EndPlatform/GoalPost/Area" index="0"]
-
-transform = Transform( 6.11186, 0, 0, 0, 5.13009, 0, 0, 0, 1, -6.04731, -0.610262, -1.7855 )
-shape = SubResource( 1 )
-disabled = false
-
-[node name="Box" parent="." index="8" instance=ExtResource( 6 )]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.36314, 1.86896, -3.96763 )
-script = ExtResource( 7 )
-
-[node name="Player1" parent="." index="9" instance=ExtResource( 8 )]
+[node name="Player1" parent="." index="1" instance=ExtResource( 2 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8162, 0.742359, 0 )
-script = ExtResource( 9 )
+script = ExtResource( 3 )
 is_player1 = true
 
-[node name="Player2" parent="." index="10" instance=ExtResource( 8 )]
+[node name="Player2" parent="." index="2" instance=ExtResource( 2 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8162, 0.742359, 4.09967 )
-script = ExtResource( 9 )
+script = ExtResource( 3 )
 _sections_unfolded = [ "Axis Lock", "Collision", "Transform" ]
 is_player1 = false
 
-[node name="Panel" type="Panel" parent="." index="11"]
+[node name="ResultPanel" type="Panel" parent="." index="3"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -139,16 +61,16 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="Label" type="Label" parent="Panel" index="0"]
+[node name="Label" type="Label" parent="ResultPanel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 282.0
-margin_top = 99.0
-margin_right = 401.0
-margin_bottom = 151.0
+margin_left = 285.0
+margin_top = 71.0
+margin_right = 548.0
+margin_bottom = 123.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -163,7 +85,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Size Flags", "custom_styles" ]
 
-[node name="DirectionalLight" type="DirectionalLight" parent="." index="12"]
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="4"]
 
 transform = Transform( 1, 0, 0, 0, 0.507953, 0.861385, 0, -0.861385, 0.507953, 0.138737, 26.3434, 12.4557 )
 layers = 1
@@ -191,9 +113,9 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Shadow" ]
 
-[node name="Spatial" parent="." index="13" instance=ExtResource( 10 )]
+[node name="Spatial" parent="." index="5" instance=ExtResource( 4 )]
 
-[node name="Ball" parent="." index="14" instance=ExtResource( 11 )]
+[node name="Ball" parent="." index="6" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2186, 3.00035, 0 )
 friction = 0.5
@@ -201,22 +123,22 @@ bounce = 0.5
 can_sleep = false
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Player1SpawnPoint" type="Position3D" parent="." index="15"]
+[node name="Player1SpawnPoint" type="Position3D" parent="." index="7"]
 
 transform = Transform( -4.37114e-08, 0, 4.27639, 0, 1, 0, -1, 0, -1.86927e-07, -10, 1.15, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Player2SpawnPoint" type="Position3D" parent="." index="16"]
+[node name="Player2SpawnPoint" type="Position3D" parent="." index="8"]
 
 transform = Transform( -4.37114e-08, 0, -4.27639, 0, 1, 0, 1, 0, -1.86927e-07, 10, 1.15, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="BallSpawnPoint" type="Position3D" parent="." index="17"]
+[node name="BallSpawnPoint" type="Position3D" parent="." index="9"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.27639, 0, 1, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Player1GoalArea" type="Area" parent="." index="18"]
+[node name="Player1GoalArea" type="Area" parent="." index="10"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.27639, -20.3912, 8.55055, 0.324338 )
@@ -248,7 +170,7 @@ transform = Transform( 1, 0, 0, 0, 7.40985, 0, 0, 0, 1, -0.558399, -1.66763, 0 )
 shape = SubResource( 2 )
 disabled = false
 
-[node name="Player2GoalArea" type="Area" parent="." index="19"]
+[node name="Player2GoalArea" type="Area" parent="." index="11"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.27639, 23.8, 8.55055, 0.324338 )
@@ -279,10 +201,6 @@ _sections_unfolded = [ "Collision", "Transform" ]
 transform = Transform( 1, 0, 0, 0, 7.40985, 0, 0, 0, 1, -0.558399, -1.66763, 0 )
 shape = SubResource( 2 )
 disabled = false
-
-[connection signal="body_entered" from="EndPlatform/GoalPost/Area" to="." method="_on_Area_body_entered"]
-
-[connection signal="body_entered" from="Box" to="Box" method="_on_Box_body_entered"]
 
 [connection signal="body_entered" from="Player1GoalArea" to="." method="_on_Player1GoalArea_body_entered"]
 
