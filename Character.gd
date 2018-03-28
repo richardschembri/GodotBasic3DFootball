@@ -4,6 +4,7 @@ extends KinematicBody
 # var a = 2
 # var b = "textvar"
 export var is_player1 = true
+
 var speed = 600
 var direction = Vector3()
 var gravity = -9.8
@@ -13,6 +14,7 @@ var camera
 var anim_player
 
 var character
+var jump_key = KEY_SHIFT
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -20,6 +22,8 @@ func _ready():
 	camera = get_node("../Camera").get_global_transform()
 	anim_player = get_node("AnimationPlayer")
 	character = get_node(".")
+	if not is_player1:
+		jump_key = KEY_SPACE
 	
 
 func _physics_process(delta):
@@ -73,7 +77,7 @@ func _physics_process(delta):
 		char_rot.y = angle
 		character.set_rotation(char_rot)
 	
-	if is_on_floor() and Input.is_key_pressed(KEY_SPACE):
+	if is_on_floor() and Input.is_key_pressed(jump_key):
 		velocity.y = 25
 	
 	#manually_handle_collision()
