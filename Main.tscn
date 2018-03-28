@@ -1,10 +1,38 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Character.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Character.gd" type="Script" id=3]
 [ext_resource path="res://Level.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Ball.tscn" type="PackedScene" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+draw_center = true
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+border_color = Color( 0.8, 0.8, 0.8, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
 
 [sub_resource type="BoxShape" id=2]
 
@@ -43,16 +71,81 @@ script = ExtResource( 3 )
 _sections_unfolded = [ "Axis Lock", "Collision", "Transform" ]
 is_player1 = false
 
-[node name="ResultPanel" type="Panel" parent="." index="3"]
+[node name="ScoresPanel" type="Panel" parent="." index="3"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 95.0
+margin_top = 20.0
+margin_right = 1020.0
+margin_bottom = 120.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 1 )
+_sections_unfolded = [ "custom_styles" ]
+
+[node name="Player1ScoreLabel" type="Label" parent="ScoresPanel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 30.0
+margin_right = 130.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Player 1: 0"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Player2ScoreLabel" type="Label" parent="ScoresPanel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 30.0
+margin_top = 50.0
+margin_right = 130.0
+margin_bottom = 90.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Player 2: 0"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="ResultPanel" type="Panel" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 350.0
 margin_top = 229.0
-margin_right = 934.0
+margin_right = 680.0
 margin_bottom = 419.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -67,10 +160,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 285.0
-margin_top = 71.0
-margin_right = 548.0
-margin_bottom = 123.0
+margin_left = 30.0
+margin_top = 51.0
+margin_right = 293.0
+margin_bottom = 103.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -83,9 +176,32 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Size Flags", "custom_styles" ]
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags", "custom_styles" ]
 
-[node name="DirectionalLight" type="DirectionalLight" parent="." index="4"]
+[node name="InstructionsLabel" type="Label" parent="ResultPanel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 40.0
+margin_top = 121.0
+margin_right = 280.0
+margin_bottom = 135.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Press (R)  to continuee
+Press (N) for New Game"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="5"]
 
 transform = Transform( 1, 0, 0, 0, 0.507953, 0.861385, 0, -0.861385, 0.507953, 0.138737, 26.3434, 12.4557 )
 layers = 1
@@ -113,9 +229,9 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Shadow" ]
 
-[node name="Spatial" parent="." index="5" instance=ExtResource( 4 )]
+[node name="Spatial" parent="." index="6" instance=ExtResource( 4 )]
 
-[node name="Ball" parent="." index="6" instance=ExtResource( 5 )]
+[node name="Ball" parent="." index="7" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2186, 3.00035, 0 )
 friction = 0.5
@@ -123,22 +239,22 @@ bounce = 0.5
 can_sleep = false
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Player1SpawnPoint" type="Position3D" parent="." index="7"]
+[node name="Player1SpawnPoint" type="Position3D" parent="." index="8"]
 
 transform = Transform( -4.37114e-08, 0, 4.27639, 0, 1, 0, -1, 0, -1.86927e-07, -10, 1.15, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Player2SpawnPoint" type="Position3D" parent="." index="8"]
+[node name="Player2SpawnPoint" type="Position3D" parent="." index="9"]
 
 transform = Transform( -4.37114e-08, 0, -4.27639, 0, 1, 0, 1, 0, -1.86927e-07, 10, 1.15, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="BallSpawnPoint" type="Position3D" parent="." index="9"]
+[node name="BallSpawnPoint" type="Position3D" parent="." index="10"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.27639, 0, 1, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Player1GoalArea" type="Area" parent="." index="10"]
+[node name="Player1GoalArea" type="Area" parent="." index="11"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.27639, -20.3912, 8.55055, 0.324338 )
@@ -170,7 +286,7 @@ transform = Transform( 1, 0, 0, 0, 7.40985, 0, 0, 0, 1, -0.558399, -1.66763, 0 )
 shape = SubResource( 2 )
 disabled = false
 
-[node name="Player2GoalArea" type="Area" parent="." index="11"]
+[node name="Player2GoalArea" type="Area" parent="." index="12"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.27639, 23.8, 8.55055, 0.324338 )
