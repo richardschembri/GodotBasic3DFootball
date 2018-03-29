@@ -33,8 +33,10 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_N):
 		set_player1_score(0)
 		set_player2_score(0)
-
 		reset_positions()
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().quit()
+		
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
