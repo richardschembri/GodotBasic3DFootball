@@ -14,7 +14,7 @@ var camera
 var anim_player
 
 var character
-var jump_key = KEY_SHIFT
+var jump_key = KEY_TAB
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -60,7 +60,7 @@ func _physics_process(delta):
 	direction = direction * speed * delta
 	
 	if velocity.y > 0:
-		gravity = -200
+		gravity = -100
 	else:
 		gravity = -300
 	
