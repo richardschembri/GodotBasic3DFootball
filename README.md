@@ -16,6 +16,6 @@ A very basic 3D football/soccer game as a study on the godot game engine
 - <kbd>TAB</kbd>: Jump
 ### Player 2
 - <kbd>W/A/S/D</kbd>: Move
-- <kbd>TAB</kbd>: Jump
+- <kbd>SPACE</kbd>: Jump
 
 
